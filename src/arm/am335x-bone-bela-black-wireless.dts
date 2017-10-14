@@ -115,9 +115,20 @@
 		>;
 	};
 
-	/* Pinmux for GPIO (digital i/o) */
-	gpio_bela_pins: pinmux_gpio_bela_pins {
+	bela_pru_pins: pinmux_bela_pru_pins {
 		pinctrl-single,pins = <
+			/* Pinmux for PRU */
+			0x0b0 0x25 /* pr1_pru1_pru_r30_4, 	P8_41 | MODE5 | INPUT_PULLDOWN */
+			0x0b4 0x25 /* pr1_pru1_pru_r30_5, 	P8_42 | MODE5 | INPUT_PULLDOWN */
+			0x0ac 0x25 /* pr1_pru1_pru_r30_3, 	P8_44 | MODE5 | INPUT_PULLDOWN */
+			0x0a0 0x25 /* pr1_pru1_pru_r30_0, 	P8_45 | MODE5 | INPUT_PULLDOWN */
+			0x0a4 0x25 /* pr1_pru1_pru_r30_1, 	P8_46 | MODE5 | INPUT_PULLDOWN */
+			0x0a8 0x25 /* pr1_pru1_pru_r30_2, 	P8_43 | MODE5 | INPUT_PULLDOWN */
+			// Note: the below are not part of bela_pru_pins, however we cannot have them in a separate group
+			// if there is no driver associated with it
+			/* Is needed for pin multiplexing Bela button correctly */
+			0x1a4 0x37 /* gpio3[19], 			P9_27 | MODE7 | INPUT_PULLUP */
+			/* Pinmux for GPIO (digital i/o) */
 			0x090 0x27 /* gpio2[2], 			P8_07 | MODE7 | INPUT_PULLDOWN */
 			0x094 0x27 /* gpio2[3], 			P8_08 | MODE7 | INPUT_PULLDOWN */
 			0x09c 0x27 /* gpio2[5], 			P8_09 | MODE7 | INPUT_PULLDOWN */
@@ -134,36 +145,18 @@
 			0x0e8 0x27 /* gpio2[24],			P8_28 | MODE7 | INPUT_PULLDOWN */
 			0x0e4 0x27 /* gpio2[23],			P8_29 | MODE7 | INPUT_PULLDOWN */
 			0x0ec 0x27 /* gpio2[25],			P8_30 | MODE7 | INPUT_PULLDOWN */
-		>;
-	};
-
-	/* Pinmux for PRU */
-	bela_pru_pins: pinmux_bela_pru_pins {
-		pinctrl-single,pins = <
-			0x0b0 0x25 /* pr1_pru1_pru_r30_4, 	P8_41 | MODE5 | INPUT_PULLDOWN */
-			0x0b4 0x25 /* pr1_pru1_pru_r30_5, 	P8_42 | MODE5 | INPUT_PULLDOWN */
-			0x0ac 0x25 /* pr1_pru1_pru_r30_3, 	P8_44 | MODE5 | INPUT_PULLDOWN */
-			0x0a0 0x25 /* pr1_pru1_pru_r30_0, 	P8_45 | MODE5 | INPUT_PULLDOWN */
-			0x0a4 0x25 /* pr1_pru1_pru_r30_1, 	P8_46 | MODE5 | INPUT_PULLDOWN */
-			0x0a8 0x25 /* pr1_pru1_pru_r30_2, 	P8_43 | MODE5 | INPUT_PULLDOWN */
-			/* Is needed for pin multiplexing Bela button correctly */
-			0x1a4 0x37 /* gpio3[19], 			P9_27 | MODE7 | INPUT_PULLUP */
+			/* Pinmux for i2c on Bela header */
+			0x180 0x33 /* i2c1_sda, 			P9_26 | MODE3 | INPUT_PULLUP */
+			0x184 0x33 /* i2c1_scl,				P9_24 | MODE3 | INPUT_PULLUP */
 		>;
 	};
 
 	/* Pinmux for tlv320aic3104 audio codec control */
+	// NOTE: we do not actually use these, as they are claimed by i2c2 somewhere else
 	bela_i2c2_pins: pinmux_bela_i2c2_pins {
 		pinctrl-single,pins = <
-			0x178 0x73 /* i2c2_sda,				P9_20 | MODE3 | INPUT_PULLUP | SLEWCTRL_SLOW */
-			0x17c 0x73 /* i2c2_scl, 			P9_19 | MODE3 | INPUT_PULLUP | SLECCTRL_SLOW */
-		>;
-	};
-
-	/* Pinmux for i2c on Bela header */
-	bela_i2c1_pins: pinmux_bela_i2c1_pins {
-		pinctrl-single,pins = <
-			0x180 0x73 /* i2c1_sda, 			P9_26 | MODE3 | INPUT_PULLUP | SLEWCTRL_SLOW */
-			0x184 0x73 /* i2c1_scl,				P9_24 | MODE3 | INPUT_PULLUP | SLEWCTRL_SLOW */
+			0x178 0x33 /* i2c2_sda,				P9_20 | MODE3 | INPUT_PULLUP */
+			0x17c 0x33 /* i2c2_scl, 			P9_19 | MODE3 | INPUT_PULLUP */
 		>;
 	};
 };
