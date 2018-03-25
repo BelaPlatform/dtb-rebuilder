@@ -18,6 +18,7 @@
 			0x154 0x30 /* spi0_d0, 				P9_21 | MODE0 | INPUT_PULLUP */
 			0x158 0x10 /* spi0_d1, 				P9_18 | MODE0 | OUTPUT_PULLUP */
 			0x15c 0x10 /* spi0_cs0, 			P9_17 | MODE0 | OUTPUT_PULLUP */
+			0x040 0x27 /* gpio used as chip select for ADC  P9_15 | MODE7 | OUTPUT_PULLUP */
 		>;
 	};
 
