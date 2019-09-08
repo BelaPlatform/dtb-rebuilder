@@ -7,6 +7,7 @@
  */
 /dts-v1/;
 
+#define BELA
 #include "dra74x.dtsi"
 #include "dra74x-mmc-iodelay.dtsi"
 #include "dra74-ipu-dsp-common.dtsi"
@@ -1171,3 +1172,107 @@
 		opp-suspend;
 	};
 };
+#ifdef BELA
+&dra7_pmx_core {
+	bela_pins_default: bela_pins_default {
+		pinctrl-single,pins = <
+// bela pins
+/* BELA0 */ DRA7XX_CORE_IOPAD(0x3694, PIN_OUTPUT_PULLDOWN | MUX_MODE3) /* D18: P9.25: xref_clk0.off */  //mcasp0_ahclkx mcasp1_ahclkx MODE3
+/* BELA1 */ DRA7XX_CORE_IOPAD(0x36E0, PIN_INPUT_PULLDOWN | MUX_MODE0) /* A12: P9.28: mcasp1_axr11.off */ //mcasp0_axr2 mcasp1_axr11 MODE0
+/* BELA2 */ DRA7XX_CORE_IOPAD(0x36D8, PIN_INPUT | MUX_MODE15) /* A11: P9.29a: mcasp1_axr9.off */ //mcasp0_fsx off MODE15
+
+/* BELA3 */ DRA7XX_CORE_IOPAD(0x36A8, PIN_INPUT_PULLDOWN | MUX_MODE0) /* D14: P9.29b: mcasp1_fsx.off */ //mcasp0_fsx mcasp1_fsx MODE0
+/* BELA4 */ DRA7XX_CORE_IOPAD(0x36DC, PIN_INPUT_PULLDOWN | MUX_MODE0) /* B13: P9.30: mcasp1_axr10.off */ //mcasp0_axr0 mcasp1_axr10 MODE0
+/* BELA5 */ DRA7XX_CORE_IOPAD(0x36D4, PIN_INPUT | MUX_MODE15) /* B12: P9.31a: mcasp1_axr8.off */ // mcasp0_aclkx off MODE15
+/* BELA6 */ DRA7XX_CORE_IOPAD(0x36A4, PIN_INPUT_PULLDOWN | MUX_MODE0) /* C14: P9.31b: mcasp1_aclkx.off */ // mcasp0_aclkx mcasp1_aclkx MODE0
+		>;
+	};
+};
+
+&hdmi {
+	status = "disabled";
+};
+// lines below taken from am335x-boneblack-common.dtsi and adapted
+&dra7_pmx_core {
+	mcasp1_pins: mcasp1_pins {
+		pinctrl-single,pins = <
+/* BELA0 */ DRA7XX_CORE_IOPAD(0x3694, PIN_OUTPUT_PULLDOWN | MUX_MODE3) /* D18: P9.25: xref_clk0.off */  //mcasp0_ahclkx mcasp1_ahclkx MODE3
+/* BELA1 */ DRA7XX_CORE_IOPAD(0x36E0, PIN_INPUT_PULLDOWN | MUX_MODE0) /* A12: P9.28: mcasp1_axr11.off */ //mcasp0_axr2 mcasp1_axr11 MODE0
+/* BELA2 */ DRA7XX_CORE_IOPAD(0x36D8, PIN_INPUT | MUX_MODE15) /* A11: P9.29a: mcasp1_axr9.off */ //mcasp0_fsx off MODE15
+
+/* BELA3 */ DRA7XX_CORE_IOPAD(0x36A8, PIN_INPUT_PULLDOWN | MUX_MODE0) /* D14: P9.29b: mcasp1_fsx.off */ //mcasp0_fsx mcasp1_fsx MODE0
+/* BELA4 */ DRA7XX_CORE_IOPAD(0x36DC, PIN_INPUT_PULLDOWN | MUX_MODE0) /* B13: P9.30: mcasp1_axr10.off */ //mcasp0_axr0 mcasp1_axr10 MODE0
+/* BELA5 */ DRA7XX_CORE_IOPAD(0x36D4, PIN_INPUT | MUX_MODE15) /* B12: P9.31a: mcasp1_axr8.off */ // mcasp0_aclkx off MODE15
+/* BELA6 */ DRA7XX_CORE_IOPAD(0x36A4, PIN_INPUT_PULLDOWN | MUX_MODE0) /* C14: P9.31b: mcasp1_aclkx.off */ // mcasp0_aclkx mcasp1_aclkx MODE0
+		>;
+	};
+};
+
+&i2c4 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	clock-frequency = <100000>;
+	status = "okay";
+	pinctrl-names = "default";
+	tlv320aic3104: tlv320aic3104@18 {
+		#sound-dai-cells = <0>;
+		compatible = "ti,tlv320aic3104";
+		reg = <0x18>;
+	};
+};
+
+/ {
+
+// the two below are from BB-BONE-AUDI-02-00A0.dts
+	sound {
+		compatible = "simple-audio-card";
+		simple-audio-card,name = "AudioCape Rev B";
+		simple-audio-card,widgets =
+			"Headphone", "Headphone Jack",
+			"Line", "Line In";
+		simple-audio-card,routing =
+			"Headphone Jack",       "HPLOUT",
+			"Headphone Jack",       "HPROUT",
+			"LINE1L",               "Line In",
+			"LINE1R",               "Line In";
+		simple-audio-card,format = "dsp_b";
+		simple-audio-card,bitclock-master = <&sound_master>;
+		simple-audio-card,frame-master = <&sound_master>;
+		simple-audio-card,bitclock-inversion;
+
+		simple-audio-card,cpu {
+			sound-dai = <&mcasp1>;
+			compatible = "fixed-clock";
+			system-clock-frequency = <20000000>;
+			system-clock-direction-out = <1>;
+		};
+
+		sound_master: simple-audio-card,codec {
+			#sound-dai-cells = <0>;
+			sound-dai = <&tlv320aic3104>;
+			clocks = <&mcasp1_ahclkx_mux>;
+			clock-frequency = <24000000>;
+			clock-names = "mclk";
+		};
+	};
+};
+&mcasp1 {
+	#sound-dai-cells = <0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcasp1_pins>;
+	status = "okay";
+	op-mode = <0>;          /* MCASP_IIS_MODE */
+	tdm-slots = <2>;
+	num-serializer = <16>;
+	serial-dir = <  /* 0: INACTIVE, 1: TX, 2: RX */
+		0 0 0 0
+		0 0 0 0
+		0 0 2 1
+		0 0 0 0
+	>;
+	tx-num-evt = <1>;
+	rx-num-evt = <1>;
+	assigned-clocks = <&mcasp1_ahclkx_mux>;
+	assigned-clock-parents = <&func_24m_clk>; // <&sys_clkin2>;
+};
+#endif // BELA
