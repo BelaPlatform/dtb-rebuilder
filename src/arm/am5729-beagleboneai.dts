@@ -542,33 +542,33 @@
 			DRA7XX_CORE_IOPAD(0x36AC, MUX_MODE14) /* B14: P9.12: mcasp1_aclkr.off */
 			DRA7XX_CORE_IOPAD(0x3730, MUX_MODE14) /* C17: P9.13: mcasp3_axr1.off */
 			DRA7XX_CORE_IOPAD(0x35AC, MUX_MODE10) /* D6: P9.14: vin2a_d17.off */
-			DRA7XX_CORE_IOPAD(0x3514, MUX_MODE14) /* AG4: P9.15: vin1a_d8.off */
+			//DRA7XX_CORE_IOPAD(0x3514, MUX_MODE14) /* AG4: P9.15: vin1a_d8.off */
 			DRA7XX_CORE_IOPAD(0x35B0, MUX_MODE13) /* C5: P9.16: vin2a_d18.off */
-			DRA7XX_CORE_IOPAD(0x37CC, MUX_MODE14) /* B24: P9.17a: spi2_cs0.off */
-			DRA7XX_CORE_IOPAD(0x36B8, MUX_MODE14) /* F12: P9.17b: mcasp1_axr1.off */
-			DRA7XX_CORE_IOPAD(0x37C8, MUX_MODE14) /* G17: P9.18a: spi2_d0.off */
-			DRA7XX_CORE_IOPAD(0x36B4, MUX_MODE14) /* G12: P9.18b: mcasp1_axr0.off */
+			//DRA7XX_CORE_IOPAD(0x37CC, MUX_MODE14) /* B24: P9.17a: spi2_cs0.off */
+			//DRA7XX_CORE_IOPAD(0x36B8, MUX_MODE14) /* F12: P9.17b: mcasp1_axr1.off */
+			//DRA7XX_CORE_IOPAD(0x37C8, MUX_MODE14) /* G17: P9.18a: spi2_d0.off */
+			//DRA7XX_CORE_IOPAD(0x36B4, MUX_MODE14) /* G12: P9.18b: mcasp1_axr0.off */
 			DRA7XX_CORE_IOPAD(0x3440, PIN_INPUT_PULLUP | MUX_MODE7) /* R6: P9.19a: gpmc_a0.i2c4_scl */
 			DRA7XX_CORE_IOPAD(0x357C, PIN_INPUT_PULLUP | MUX_MODE12 ) /* F4: P9.19b: vin2a_d5.pr1_pru1_gpi2 */
 			DRA7XX_CORE_IOPAD(0x3444, PIN_INPUT_PULLUP | MUX_MODE7) /* T9: P9.20a: gpmc_a1.i2c4_sda */
 			DRA7XX_CORE_IOPAD(0x3578, PIN_INPUT_PULLUP | MUX_MODE12) /* D2: P9.20b: vin2a_d4.pr1_pru1_gpi1 */
-			DRA7XX_CORE_IOPAD(0x34F0, MUX_MODE14) /* AF8: P9.21a: vin1a_vsync0.off */
-			DRA7XX_CORE_IOPAD(0x37C4, MUX_MODE14) /* B22: P9.21b: spi2_d1.off */
-			DRA7XX_CORE_IOPAD(0x369C, MUX_MODE14) /* B26: P9.22a: xref_clk2.off */
-			DRA7XX_CORE_IOPAD(0x37C0, MUX_MODE14) /* A26: P9.22b: spi2_sclk.off */
+			//DRA7XX_CORE_IOPAD(0x34F0, MUX_MODE14) /* AF8: P9.21a: vin1a_vsync0.off */
+			//DRA7XX_CORE_IOPAD(0x37C4, MUX_MODE14) /* B22: P9.21b: spi2_d1.off */
+			//DRA7XX_CORE_IOPAD(0x369C, MUX_MODE14) /* B26: P9.22a: xref_clk2.off */
+			//DRA7XX_CORE_IOPAD(0x37C0, MUX_MODE14) /* A26: P9.22b: spi2_sclk.off */
 			DRA7XX_CORE_IOPAD(0x37B4, MUX_MODE14) /* A22: P9.23: spi1_cs1.off */
 			DRA7XX_CORE_IOPAD(0x368C, MUX_MODE14) /* F20: P9.24: gpio6_15.off */
-			DRA7XX_CORE_IOPAD(0x3694, MUX_MODE14) /* D18: P9.25: xref_clk0.off */
+			//DRA7XX_CORE_IOPAD(0x3694, MUX_MODE14) /* D18: P9.25: xref_clk0.off */
 			DRA7XX_CORE_IOPAD(0x3688, MUX_MODE14) /* E21: P9.26a: gpio6_14.off */
 			DRA7XX_CORE_IOPAD(0x3544, MUX_MODE14) /* AE2: P9.26b: vin1a_d20.off */
 			DRA7XX_CORE_IOPAD(0x35A0, MUX_MODE14) /* C3: P9.27a: vin2a_d14.off */
 			DRA7XX_CORE_IOPAD(0x36B0, MUX_MODE14) /* J14: P9.27b: mcasp1_fsr.off */
-			DRA7XX_CORE_IOPAD(0x36E0, MUX_MODE14) /* A12: P9.28: mcasp1_axr11.off */
-			DRA7XX_CORE_IOPAD(0x36D8, MUX_MODE14) /* A11: P9.29a: mcasp1_axr9.off */
-			DRA7XX_CORE_IOPAD(0x36A8, MUX_MODE14) /* D14: P9.29b: mcasp1_fsx.off */
-			DRA7XX_CORE_IOPAD(0x36DC, MUX_MODE14) /* B13: P9.30: mcasp1_axr10.off */
-			DRA7XX_CORE_IOPAD(0x36D4, MUX_MODE14) /* B12: P9.31a: mcasp1_axr8.off */
-			DRA7XX_CORE_IOPAD(0x36A4, MUX_MODE14) /* C14: P9.31b: mcasp1_aclkx.off */
+			//DRA7XX_CORE_IOPAD(0x36E0, MUX_MODE14) /* A12: P9.28: mcasp1_axr11.off */
+			//DRA7XX_CORE_IOPAD(0x36D8, MUX_MODE14) /* A11: P9.29a: mcasp1_axr9.off */
+			//DRA7XX_CORE_IOPAD(0x36A8, MUX_MODE14) /* D14: P9.29b: mcasp1_fsx.off */
+			//DRA7XX_CORE_IOPAD(0x36DC, MUX_MODE14) /* B13: P9.30: mcasp1_axr10.off */
+			//DRA7XX_CORE_IOPAD(0x36D4, MUX_MODE14) /* B12: P9.31a: mcasp1_axr8.off */
+			//DRA7XX_CORE_IOPAD(0x36A4, MUX_MODE14) /* C14: P9.31b: mcasp1_aclkx.off */
 			DRA7XX_CORE_IOPAD(0x36A0, MUX_MODE14) /* C23: P9.41a: xref_clk3.off */
 			DRA7XX_CORE_IOPAD(0x3580, MUX_MODE14) /* C1: P9.41b: vin2a_d6.off */
 			DRA7XX_CORE_IOPAD(0x36E4, MUX_MODE14) /* E14: P9.42a: mcasp1_axr12.off */
@@ -1173,22 +1173,6 @@
 	};
 };
 #ifdef BELA
-&dra7_pmx_core {
-	bela_pins_default: bela_pins_default {
-		pinctrl-single,pins = <
-// bela pins
-/* BELA0 */ DRA7XX_CORE_IOPAD(0x3694, PIN_OUTPUT_PULLDOWN | MUX_MODE3) /* D18: P9.25: xref_clk0.off */  //mcasp0_ahclkx mcasp1_ahclkx MODE3
-/* BELA1 */ DRA7XX_CORE_IOPAD(0x36E0, PIN_INPUT_PULLDOWN | MUX_MODE0) /* A12: P9.28: mcasp1_axr11.off */ //mcasp0_axr2 mcasp1_axr11 MODE0
-/* BELA2 */ DRA7XX_CORE_IOPAD(0x36D8, PIN_INPUT | MUX_MODE15) /* A11: P9.29a: mcasp1_axr9.off */ //mcasp0_fsx off MODE15
-
-/* BELA3 */ DRA7XX_CORE_IOPAD(0x36A8, PIN_INPUT_PULLDOWN | MUX_MODE0) /* D14: P9.29b: mcasp1_fsx.off */ //mcasp0_fsx mcasp1_fsx MODE0
-/* BELA4 */ DRA7XX_CORE_IOPAD(0x36DC, PIN_INPUT_PULLDOWN | MUX_MODE0) /* B13: P9.30: mcasp1_axr10.off */ //mcasp0_axr0 mcasp1_axr10 MODE0
-/* BELA5 */ DRA7XX_CORE_IOPAD(0x36D4, PIN_INPUT | MUX_MODE15) /* B12: P9.31a: mcasp1_axr8.off */ // mcasp0_aclkx off MODE15
-/* BELA6 */ DRA7XX_CORE_IOPAD(0x36A4, PIN_INPUT_PULLDOWN | MUX_MODE0) /* C14: P9.31b: mcasp1_aclkx.off */ // mcasp0_aclkx mcasp1_aclkx MODE0
-		>;
-	};
-};
-
 &hdmi {
 	status = "disabled";
 };
@@ -1204,6 +1188,19 @@
 /* BELA4 */ DRA7XX_CORE_IOPAD(0x36DC, PIN_INPUT_PULLDOWN | MUX_MODE0) /* B13: P9.30: mcasp1_axr10.off */ //mcasp0_axr0 mcasp1_axr10 MODE0
 /* BELA5 */ DRA7XX_CORE_IOPAD(0x36D4, PIN_INPUT | MUX_MODE15) /* B12: P9.31a: mcasp1_axr8.off */ // mcasp0_aclkx off MODE15
 /* BELA6 */ DRA7XX_CORE_IOPAD(0x36A4, PIN_INPUT_PULLDOWN | MUX_MODE0) /* C14: P9.31b: mcasp1_aclkx.off */ // mcasp0_aclkx mcasp1_aclkx MODE0
+		>;
+	};
+	mcspi2_pins: pinmux_mcspi2_pins {
+		pinctrl-single,pins = <
+/* BELA7 */ DRA7XX_CORE_IOPAD(0x3514, PIN_OUTPUT_PULLUP | MUX_MODE14) /* AG4: P9.15: vin1a_d8.gpio3_12 */ // gpio3_12 CS for the ADC
+/* BELA8 */ DRA7XX_CORE_IOPAD(0x37CC, PIN_OUTPUT_PULLUP | MUX_MODE14) /* B24: P9.17a: spi2_cs0.gpio7_17 */ // gpio7_17 CS for the DAC
+/* BELA9 */ DRA7XX_CORE_IOPAD(0x36B8, MUX_MODE15) /* F12: P9.17b: mcasp1_axr1.off */ // off
+/* BELA10 */DRA7XX_CORE_IOPAD(0x37C8, PIN_INPUT | MUX_MODE0) /* G17: P9.18a: spi2_d0.spi2_d0 */ // MOSI
+/* BELA11 */DRA7XX_CORE_IOPAD(0x36B4, MUX_MODE15) /* G12: P9.18b: mcasp1_axr0a off MODE15 */ // off
+/* BELA12 */DRA7XX_CORE_IOPAD(0x34F0, MUX_MODE15) /* AF8: P9.21a: vin1a_vsync0.off */ // off
+/* BELA13 */DRA7XX_CORE_IOPAD(0x37C4, PIN_INPUT | MUX_MODE0) /* B22: P9.21b: spi2_d1.spi2_d1 */ // MISO
+/* BELA14 */DRA7XX_CORE_IOPAD(0x369C, MUX_MODE15) /* B26: P9.22a: xref_clk2.off */ // off
+/* BELA15 */DRA7XX_CORE_IOPAD(0x37C0, PIN_OUTPUT | MUX_MODE0) /* A26: P9.22b: spi2_sclk.spi2_sclk */ //SCLK
 		>;
 	};
 };
@@ -1273,6 +1270,34 @@
 	tx-num-evt = <1>;
 	rx-num-evt = <1>;
 	assigned-clocks = <&mcasp1_ahclkx_mux>;
-	assigned-clock-parents = <&func_24m_clk>; // <&sys_clkin2>;
+	assigned-clock-parents = <&func_24m_clk>;
+};
+
+&mcspi2 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&mcspi2_pins>;
+	clocks = <&func_48m_fclk>; // unneeded?
+	ti,pindir-d0-out-d1-in;
+
+	//cs-gpios = <0>, <&gpio7 11 0>; // possibly these could be eabled, but for now we'll do manual CS
+
+	channel@0 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "spidev";
+		reg = <0>;
+		spi-max-frequency = <48000000>;
+	};
+
+	channel@1 {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		compatible = "spidev";
+		reg = <1>;
+		spi-max-frequency = <48000000>;
+	};
 };
 #endif // BELA
