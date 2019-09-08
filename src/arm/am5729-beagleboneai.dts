@@ -1180,7 +1180,7 @@
 &dra7_pmx_core {
 	mcasp1_pins: mcasp1_pins {
 		pinctrl-single,pins = <
-/* BELA0 */ DRA7XX_CORE_IOPAD(0x3694, PIN_OUTPUT_PULLDOWN | MUX_MODE3) /* D18: P9.25: xref_clk0.off */  //mcasp0_ahclkx mcasp1_ahclkx MODE3
+/* BELA0 */ DRA7XX_CORE_IOPAD(0x3694, PIN_OUTPUT_PULLDOWN | MUX_MODE9) /* D18: P9.25: xref_clk0.clkout2 */  //clkout2  MODE9
 /* BELA1 */ DRA7XX_CORE_IOPAD(0x36E0, PIN_INPUT_PULLDOWN | MUX_MODE0) /* A12: P9.28: mcasp1_axr11.off */ //mcasp0_axr2 mcasp1_axr11 MODE0
 /* BELA2 */ DRA7XX_CORE_IOPAD(0x36D8, PIN_INPUT | MUX_MODE15) /* A11: P9.29a: mcasp1_axr9.off */ //mcasp0_fsx off MODE15
 
@@ -1240,15 +1240,13 @@
 		simple-audio-card,cpu {
 			sound-dai = <&mcasp1>;
 			compatible = "fixed-clock";
-			system-clock-frequency = <20000000>;
 			system-clock-direction-out = <1>;
 		};
 
 		sound_master: simple-audio-card,codec {
 			#sound-dai-cells = <0>;
 			sound-dai = <&tlv320aic3104>;
-			clocks = <&mcasp1_ahclkx_mux>;
-			clock-frequency = <24000000>;
+			clocks = <&clkout2_clk>;
 			clock-names = "mclk";
 		};
 	};
@@ -1269,8 +1267,8 @@
 	>;
 	tx-num-evt = <1>;
 	rx-num-evt = <1>;
-	assigned-clocks = <&mcasp1_ahclkx_mux>;
-	assigned-clock-parents = <&func_24m_clk>;
+	assigned-clocks = <&clkoutmux2_clk_mux>;
+	assigned-clock-parents = <&sys_clk2_dclk_div>;
 };
 
 &mcspi2 {
